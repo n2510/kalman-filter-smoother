@@ -1,14 +1,16 @@
 # Lineare Kalman Filter und Glaetter fuer mehrere Variablen
 # http://greg.czerniak.info/guides/kalman1/
 
-# Python Bibliotheken
+# Python 2.7
 import pylab
 import math
 import random
 import numpy
 
-# Meine Bibliotheken
+# Lineare Kalman Filter
 from kalman_filter import lineare_kalman_filter
+
+# Lineare Kalman Smoother
 from kalman_smoother import lineare_kalman_glaetter
 
 ## Beispiel: Ball aus einer Kanone schiessen - parabelfoermige Laufbahn
@@ -217,9 +219,9 @@ print '\n reversed y-glaetter: \n', gy[::-1]
 import seaborn as sns
 sns.set()
 
-pylab.plot(x,y,'-',nx,ny,':',kx,ky,'--',gx[::-1],gy[::-1],'--')
+pylab.plot(nx,ny,':',x,y,'-',kx,ky,'--',gx[::-1],gy[::-1],'--')
 pylab.xlabel('X Position')
 pylab.ylabel('Y Position')
 pylab.title('Messung eines Kanonenballs im Flug')
-pylab.legend(('wahr','gemessen','Filter','Glaetter'))
+pylab.legend(('gemessen','wahr','Filter','Glaetter'))
 pylab.show()
